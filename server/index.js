@@ -1,8 +1,10 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var cors = require("cors");
-var mongoose = require("mongoose");
-var morgan = require("morgan");
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const morgan = require("morgan");
+
+const posts = require("./routes/posts.js");
 
 const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -28,3 +30,5 @@ mongoose
   .catch((error) => console.log("Error connecting database:", error));
 
 mongoose.set("useFindAndModify", false);
+
+app.use("/posts", posts());
