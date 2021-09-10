@@ -5,7 +5,11 @@ import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import Memories from "../src/images/memories.png";
 import Posts from "../src/components/Posts/Posts";
 import Form from "../src/components/Form/Form";
+import useStyles from "../src/styles";
+
 function App() {
+  const classes = useStyles();
+
   return (
     // <Router>
     //   <div className="App">
@@ -16,11 +20,16 @@ function App() {
     // </Router>
 
     <Container maxidth="lg">
-      <AppBar position="static">
+      <AppBar className={classes.appBar} position="static">
         <Typography variant="h2" align="center">
           Memories
         </Typography>
-        <img src={Memories} alt="Memories" height="60" />
+        <img
+          className={classes.image}
+          src={Memories}
+          alt="Memories"
+          height="60"
+        />
       </AppBar>
 
       <Grow in>
