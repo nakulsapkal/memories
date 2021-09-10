@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
@@ -6,9 +6,16 @@ import Memories from "../src/images/memories.png";
 import Posts from "../src/components/Posts/Posts";
 import Form from "../src/components/Form/Form";
 import useStyles from "../src/styles";
-
+import { getPosts } from "./action/post";
+import { useDispatch } from "react-redux";
 function App() {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
 
   return (
     // <Router>
