@@ -1,14 +1,12 @@
-import React from "react";
-import { getPosts } from "../action/post";
-
-export default (state = [], action) => {
+const posts = (posts = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
-      getPosts();
       return action.paylaod;
     case "CREATE":
-      return state;
+      console.log("posts in reducers:", posts, action.paylaod);
+      return [...posts, action.paylaod];
     default:
-      return state;
+      return posts;
   }
 };
+export default posts;

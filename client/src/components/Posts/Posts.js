@@ -7,7 +7,7 @@ export default function Posts() {
   const classes = useStyles();
   const posts = useSelector((state) => state.posts);
 
-  console.log(posts);
+  console.log(" in POSTS Component:", posts);
   return (
     <>
       <Post />
